@@ -164,3 +164,8 @@ C:\Users\waxinn\projet\test\Todo-List\MinimalApiDemo\bin\Debug\net8.0\runtimes\w
 C:\Users\waxinn\projet\test\Todo-List\MinimalApiDemo\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\waxinn\projet\test\Todo-List\MinimalApiDemo\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\waxinn\projet\test\Todo-List\MinimalApiDemo\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\waxinn\projet\test\Todo-List\MinimalApiDemo\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\waxinn\projet\test\Todo-List\MinimalApiDemo\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\waxinn\projet\test\Todo-List\MinimalApiDemo\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\waxinn\projet\test\Todo-List\MinimalApiDemo\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\waxinn\projet\test\Todo-List\MinimalApiDemo\obj\Debug\net8.0\MinimalApiDemo.MvcApplicationPartsAssemblyInfo.cs

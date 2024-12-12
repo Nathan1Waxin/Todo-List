@@ -4,5 +4,6 @@
 
 Microsoft.EntityFrameworkCore.InMemory;
 Microsoft.EntityFrameworkCore.Design;
-Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.SqlServer;
+Swashbuckle.AspNetCore;
 AutoMapper;

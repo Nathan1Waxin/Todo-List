@@ -2,41 +2,36 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using MinimalApiDemo.Models;
 
-
-// establish a connection with the database
 namespace MinimalApiDemo.AppDataContext
 {
+    public class TodoDbContext : DbContext
+    {
+        private readonly DbSettings _dbsettings;
 
-    // TodoDbContext class inherits from DbContext
-     public class TodoDbContext : DbContext
-     {
+        public TodoDbContext(IOptions<DbSettings> dbSettings)
+        {
+            _dbsettings = dbSettings.Value;
+        }
 
-        // DbSettings field to store the connection string
-         private readonly DbSettings _dbsettings;
+        public DbSet<Todo> Todos { get; set; }
 
-            // Constructor to inject the DbSettings model
-         public TodoDbContext(IOptions<DbSettings> dbSettings)
-         {
-             _dbsettings = dbSettings.Value;
-         }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (_dbsettings.ConnectionString.StartsWith("InMemory"))
+            {
+                optionsBuilder.UseInMemoryDatabase("TodoInMemoryDb");
+            }
+            else
+            {
+                optionsBuilder.UseSqlServer(_dbsettings.ConnectionString);
+            }
+        }
 
-
-        // DbSet property to represent the Todo table
-         public DbSet<Todo> Todos { get; set; }
-
-         // Configuring the database provider and connection string
-
-         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-         {
-             optionsBuilder.UseSqlServer(_dbsettings.ConnectionString);
-         }
-
-            // Configuring the model for the Todo entity
-         protected override void OnModelCreating(ModelBuilder modelBuilder)
-         {
-             modelBuilder.Entity<Todo>()
-                 .ToTable("TodoAPI")
-                 .HasKey(x => x.Id);
-         }
-     }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Todo>()
+                .ToTable("TodoAPI")
+                .HasKey(x => x.Id);
+        }
+    }
 }
