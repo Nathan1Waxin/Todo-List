@@ -42,9 +42,9 @@ namespace MinimalApiDemo.Controllers
       }
   }
 
-    // Get all Todo Items
+// Get all Todo Items
 
-      [HttpGet]
+  [HttpGet]
   public async Task<IActionResult> GetAllAsync()
   {
       try
@@ -63,6 +63,40 @@ namespace MinimalApiDemo.Controllers
 
 
       }
+  }
+
+// Update a Todo Item
+  [HttpPut("{id}")]
+  public async Task<IActionResult> UpdateTodoAsync(Guid id, UpdateTodoRequest request)
+  {
+    if (!ModelState.IsValid)
+    {
+        return BadRequest(ModelState);
+    }
+    try
+    {
+        await _todoServices.UpdateTodoAsync(id, request);
+        return Ok(new { message = "Todo Item successfully updated" });
+    }
+    catch (Exception ex)
+    {
+        return StatusCode(500, new { message = "An error occurred while updating the Todo Item", error = ex.Message });
+    }
+  }
+
+// Delete a Todo Item
+  [HttpDelete("{id}")]
+  public async Task<IActionResult> DeleteTodoAsync(Guid id)
+  {
+    try
+    {
+        await _todoServices.DeleteTodoAsync(id);
+        return Ok(new { message = "Todo Item successfully deleted" });
+    }
+    catch (Exception ex)
+    {
+        return StatusCode(500, new { message = "An error occurred while deleting the Todo Item", error = ex.Message });
+    }
   }
 
     }

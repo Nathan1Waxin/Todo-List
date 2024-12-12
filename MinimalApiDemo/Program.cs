@@ -42,6 +42,7 @@ var app = builder.Build();
     var context = scope.ServiceProvider;
 }
 
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -50,22 +51,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapGet("/elements", async (AppDbContext db) =>
-    await db.Elements.ToListAsync());
-
-app.MapPost("/elements", async (AppDbContext db, Element element) =>
-{
-    db.Elements.Add(element);
-    await db.SaveChangesAsync();
-    return Results.Created($"/elements/{element.Id}", element);
-});
-
-app.MapGet("/", () => "Hello World!");
 
 app.Run();
