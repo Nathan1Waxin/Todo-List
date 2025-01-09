@@ -4,6 +4,8 @@ using MinimalApiDemo.Models;
 using MinimalApiDemo.AppDataContext;
 using MinimalApiDemo.Middleware;
 using Microsoft.OpenApi.Models;
+using MinimalApiDemo.Interface;
+using TodoAPI.Services;
 
 
  // program.cs
@@ -23,6 +25,8 @@ builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "MinimalApiDemo", Version = "v1" });
 });
+
+builder.Services.AddScoped<ITodoServices, TodoServices>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

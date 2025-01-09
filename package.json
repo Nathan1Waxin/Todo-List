@@ -1,0 +1,28 @@
+{
+  "name": "Todo-List",
+  "version": "1.0.0",
+  "description": "Microsoft.EntityFrameworkCore.InMemory;\r Microsoft.EntityFrameworkCore.Design;\r Microsoft.EntityFrameworkCore.SqlServer;\r Swashbuckle.AspNetCore;\r AutoMapper;",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ng serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nathan1Waxin/Todo-List.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nathan1Waxin/Todo-List/issues"
+  },
+  "homepage": "https://github.com/Nathan1Waxin/Todo-List#readme",
+  "dependencies": {
+    "@angular/cli": "^14.2.13",
+    "@angular/core": "^14.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  }
+}

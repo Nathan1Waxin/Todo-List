@@ -65,6 +65,24 @@ namespace MinimalApiDemo.Controllers
       }
   }
 
+  [HttpGet("{id:guid}")]
+  public async Task<IActionResult> GetByIdAsync(Guid id)
+  {
+    try
+    {
+        var todo = await _todoServices.GetByIdAsync(id);
+        if (todo == null)
+        {
+            return NotFound(new { message = $"No Todo item with Id {id} found." });
+        }
+        return Ok(new { message = $"Successfully retrieved Todo item with Id {id}.", data = todo });
+    }
+    catch (Exception ex)
+    {
+        return StatusCode(500, new { message = $"An error occurred while retrieving the Todo item with Id {id}.", error = ex.Message });
+    }
+  }
+
 // Update a Todo Item
   [HttpPut("{id}")]
   public async Task<IActionResult> UpdateTodoAsync(Guid id, UpdateTodoRequest request)
